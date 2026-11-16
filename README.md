@@ -20,9 +20,9 @@ A Flutter + Firebase app that estimates a household's monthly electricity bill i
 |---|---|---|
 | <img src="screenshots/Protected.JPG" width="220"> | <img src="screenshots/unprotected.JPG" width="220"> | <img src="screenshots/History.JPG" width="220"> |
 
-| Dark mode |
-|---|
-| <img src="screenshots/Dark.JPG" width="220"> |
+| Dark mode | Urdu (RTL) |
+|---|---|
+| <img src="screenshots/Dark.JPG" width="220"> | <img src="screenshots/Urdu.JPG" width="220"> |
 
 ## Features
 
@@ -48,11 +48,11 @@ A Flutter + Firebase app that estimates a household's monthly electricity bill i
 
 ## Architecture
 
-```
+```text
 lib/
-├── config/      tariff_config        (defaults, overwritten from Firestore)
+├── config/      tariff_config       (defaults, overwritten from Firestore)
 ├── models/      appliance, slab, bill_record
-├── providers/   appliance_provider   (Firestore stream per user)
+├── providers/   appliance_provider  (Firestore stream per user)
 ├── services/    auth, bill_calculator, tariff_service, history_service,
 │                protected_status_service, theme_controller, language_controller
 ├── screens/     login, home, history
@@ -62,26 +62,41 @@ lib/
 
 ## Firestore structure
 
-```
+```text
 users/{uid}/appliances/{id}   name, watts, hoursPerDay, daysPerMonth
 users/{uid}/bills/{yyyy-MM}   units, total
 config/tariff                 json (slabs, GST, FC surcharge, window, note)
 ```
 
-Security rules: a user can read and write only `users/{their uid}/**`; `config/*` is read-only for signed-in users.
+Security rules: a user can read and write only `users/{their uid}/**`; `config/**` is read-only for signed-in users.
 
 ## Run locally
 
-1. Install Flutter and the FlutterFire CLI
-2. Create a Firebase project, enable Email/Password and Google sign-in, and create Firestore
-3. Run `flutterfire configure` (generates `lib/firebase_options.dart`)
+1. Install Flutter and the FlutterFire CLI.
+2. Create a Firebase project, enable Email/Password and Google sign-in, and create Firestore.
+3. Run `flutterfire configure` (generates `lib/firebase_options.dart`).
 4. Create `config/tariff` in Firestore with a string field `json`:
 
 ```json
-{"protectedLimit":200,"protectedWindowMonths":6,"gstRate":0.18,"fcSurchargePerUnit":0.43,"fixedCharge":0,
- "note":"IESCO rates (approx)",
- "protectedSlabs":[{"from":0,"to":100,"rate":10.54},{"from":100,"to":200,"rate":13.01}],
- "unprotectedSlabs":[{"from":0,"to":100,"rate":22.44},{"from":100,"to":200,"rate":28.91},{"from":200,"to":300,"rate":33.10},{"from":300,"to":700,"rate":33.10},{"from":700,"to":null,"rate":47.69}]}
+{
+  "protectedLimit": 200,
+  "protectedWindowMonths": 6,
+  "gstRate": 0.18,
+  "fcSurchargePerUnit": 0.43,
+  "fixedCharge": 0,
+  "note": "IESCO rates (approx)",
+  "protectedSlabs": [
+    {"from": 0, "to": 100, "rate": 10.54},
+    {"from": 100, "to": 200, "rate": 13.01}
+  ],
+  "unprotectedSlabs": [
+    {"from": 0, "to": 100, "rate": 22.44},
+    {"from": 100, "to": 200, "rate": 28.91},
+    {"from": 200, "to": 300, "rate": 33.10},
+    {"from": 300, "to": 700, "rate": 33.10},
+    {"from": 700, "to": null, "rate": 47.69}
+  ]
+}
 ```
 
 5. Run:
@@ -112,5 +127,7 @@ Estimates are approximate. Real bills include FCA/QTA adjustments and other char
 ## Author
 
 **Bisma Maqbool**
+
 BS Software Engineering, HITEC University Taxila
+
 GitHub: [@BismaMaqbool](https://github.com/BismaMaqbool)
