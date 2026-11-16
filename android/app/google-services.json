@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21777661078",
+    "project_id": "bijli-hisaab-ed666",
+    "storage_bucket": "bijli-hisaab-ed666.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21777661078:android:05cf8d223998af34e916b7",
+        "android_client_info": {
+          "package_name": "com.example.bijli_hisaab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUL-QCgVaYBE0SpTHIfr76aXqtRmwDMDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

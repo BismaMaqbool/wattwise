@@ -1,0 +1,39 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "bijli-hisaab-ed666",
+          "appId": "1:21777661078:android:05cf8d223998af34e916b7",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "bijli-hisaab-ed666",
+          "configurations": {
+            "android": "1:21777661078:android:05cf8d223998af34e916b7",
+            "ios": "1:21777661078:ios:3a4dcd19ddeda4aae916b7",
+            "macos": "1:21777661078:ios:3a4dcd19ddeda4aae916b7",
+            "web": "1:21777661078:web:5bd425a88e6205cbe916b7",
+            "windows": "1:21777661078:web:44563ac408d21c31e916b7"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
